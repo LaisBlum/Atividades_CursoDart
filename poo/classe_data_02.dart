@@ -1,7 +1,7 @@
 class Data {
   // Atributos que não são inicializados no momento da criação do objeto --> late
-  int dia;
-  int mes;
+  late int dia;
+  late int mes;
   int ano;
 
   // Data(int dia, int mes, int ano){
@@ -12,6 +12,15 @@ class Data {
 
   // Construtor com parâmetros opcionais e com default
   Data([this.dia = 1, this.mes = 1, this.ano = 1970]);
+  
+  //NAMED CONSTRUCTORS
+  // {} = parâmetros nomeados
+  Data.com({this.dia = 1, this.mes = 1, this.ano = 1970});
+  Data.ultimoDiaDoAno(this.ano){
+    dia = 31;
+    mes = 12;
+  }
+
 
   String obterFormatada(){
     return "$dia/$mes/$ano";
@@ -42,4 +51,12 @@ main(){
   print(Data(31));
   print(Data(31, 12));
   print(Data(31, 12, 2021));
+
+  print("\nVerificando parâmetros nomeados e default:");
+  print(Data.com(ano: 2022));
+
+  var dataFinal = Data.com(dia: 12, mes: 7, ano: 2024);
+  print("O Mickey será público em: $dataFinal");
+
+  print(Data.ultimoDiaDoAno(2023));
 }
