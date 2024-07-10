@@ -12,5 +12,11 @@ main(){
     print("Velocidade atual: ${carro.frear()} km/h");
   }
 
-  print("\nO carro está parado");
+  print("\nO carro está parado (velocidade = ${carro.velocidadeAtual} km/h)");
+
+  carro.velocidadeAtual = 500;
+  print('\nPermitiu trocar de velocidade para 500? ${carro.velocidadeAtual == 500}');
+  
+  carro.velocidadeAtual = 3;
+  print('Permitiu trocar de velocidade para 3? ${carro.velocidadeAtual == 3}');
 }
